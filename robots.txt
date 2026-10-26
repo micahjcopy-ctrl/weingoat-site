@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /og
+
+Sitemap: https://weingoat-site.vercel.app/sitemap.xml

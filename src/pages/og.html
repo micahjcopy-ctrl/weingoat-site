@@ -1,0 +1,29 @@
+<style>
+body{margin:0;width:1200px;height:630px;overflow:hidden;background:radial-gradient(70% 75% at 18% 35%, #3A0E1A 0%, #1C0B10 48%, #120709 100%);position:relative;font-family:var(--body);color:var(--cream)}
+.og-photo{position:absolute;right:0;top:0;height:630px;width:560px;object-fit:cover;object-position:62% 100%;-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 40%);mask-image:linear-gradient(to right, transparent 0%, #000 40%)}
+.og-copy{position:absolute;left:72px;top:92px;width:640px}
+.og-mark{font-family:var(--display);font-weight:700;font-size:44px;letter-spacing:.02em}
+.og-mark span{color:var(--gold)}
+.og-h{font-family:var(--display);font-weight:600;font-size:66px;line-height:1.02;letter-spacing:-.01em;margin-top:34px;max-width:12ch}
+.og-sub{font-size:24px;color:var(--mute);margin-top:26px;max-width:26ch;line-height:1.4}
+.og-sub b{color:var(--cream)}
+.og-cards{position:absolute;left:640px;bottom:40px;display:flex;perspective:900px}
+.og-cards .card{width:120px}
+.og-cards .card:nth-child(1){transform:rotate(-9deg) translateX(10px)}
+.og-cards .card:nth-child(2){transform:rotate(7deg) translateX(-10px) translateY(8px)}
+.og-chip{position:absolute;left:560px;bottom:60px;width:86px;height:86px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55))}
+.og-rail{position:absolute;left:0;right:0;bottom:0;height:120px}
+.og-rail path{fill:none;stroke:#D4AF37;stroke-width:1.5;opacity:.7}
+</style>
+<img class="og-photo" src="/img/hero-portrait.jpg" alt="">
+<svg class="og-rail" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M-20,110 C250,10 950,10 1220,110"/></svg>
+<div class="og-copy">
+  <div class="og-mark">Wein<span>goat</span></div>
+  <div class="og-h">Stop guessing in the spots that cost you the most.</div>
+  <div class="og-sub"><b>Adam Weingard</b>, professional poker player. $500K+ won in twelve months. One question at every decision.</div>
+</div>
+<div class="og-chip chip-gold"><svg class="chip-svg"><use href="#chip"/></svg></div>
+<div class="og-cards"><div class="card" data-rank="A" data-suit="♠"></div><div class="card red" data-rank="A" data-suit="♥"></div></div>
+<script>
+document.querySelectorAll('.card[data-rank]').forEach(function(c){ var r=c.dataset.rank,s=c.dataset.suit; c.innerHTML='<div class="face"><div class="corner"><span class="rank">'+r+'</span><span class="pip">'+s+'</span></div><span class="big">'+s+'</span><div class="corner bottom"><span class="rank">'+r+'</span><span class="pip">'+s+'</span></div></div><div class="back"></div>'; });
+</script>

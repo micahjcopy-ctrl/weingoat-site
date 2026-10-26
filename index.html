@@ -3,343 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Weingoat</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<title>Weingoat | Adam Weingard, Pro Poker Player & Coach</title>
+<meta name="description" content="Adam Weingard (Weingoat) won $500K+ in twelve months at live cash, online and tournaments. Learn the question he asks at every decision, from $9.">
+<link rel="canonical" href="https://weingoat-site.vercel.app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Adam Weingard">
+<meta name="theme-color" content="#120709">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Weingoat">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://weingoat-site.vercel.app/">
+<meta property="og:title" content="Weingoat | Adam Weingard, Pro Poker Player & Coach">
+<meta property="og:description" content="Adam Weingard (Weingoat) won $500K+ in twelve months at live cash, online and tournaments. Learn the question he asks at every decision, from $9.">
+<meta property="og:image" content="https://weingoat-site.vercel.app/img/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Weingoat: Adam Weingard, professional poker player">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weingoat | Adam Weingard, Pro Poker Player & Coach">
+<meta name="twitter:description" content="Adam Weingard (Weingoat) won $500K+ in twelve months at live cash, online and tournaments. Learn the question he asks at every decision, from $9.">
+<meta name="twitter:image" content="https://weingoat-site.vercel.app/img/og-home.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-<style>
-/* Layout concept: the page is one poker hand. A sticky header holds the community board that deals
-   as the reader scrolls (flop at the problem, turn at the record, river at the method); the hero deals
-   two hole cards. Dark felt ground, maroon surfaces, gold as the only accent. Single theme by choice. */
-:root{
-  --ink:#120709; --felt:#1C0B10; --felt-2:#26101A;
-  --maroon:#5E1121; --maroon-2:#7A1730;
-  --gold:#D4AF37; --gold-2:#F0D583; --gold-dim:#8C6D22;
-  --cream:#F4EADB; --cream-2:#FBF6EC; --mute:#B9A49A;
-  --suit-red:#B3182E; --suit-black:#1A1114;
-  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  --ease:cubic-bezier(.16,1,.3,1);
-  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
-  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
-  --max:1180px;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--gold);text-decoration-thickness:1px;text-underline-offset:4px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-.01em;margin:0;text-wrap:balance}
-p{margin:0}
-b{font-weight:600;color:#FFF7E8}
-u.tac{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:1.5px;text-underline-offset:5px;text-decoration-skip-ink:none}
-.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
-.grain{position:relative}
-.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.045;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* ---------- header + board ---------- */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:linear-gradient(to bottom, rgba(18,7,9,.96), rgba(18,7,9,.86));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.18)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding-block:8px}
-.mark{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.02em;color:var(--cream);text-decoration:none}
-.mark span{color:var(--gold)}
-.board{display:flex;gap:6px;align-items:center}
-.board .slot{width:28px;height:40px;border-radius:4px;border:1px dashed rgba(212,175,55,.35);perspective:400px;position:relative}
-.board .slot .card{width:100%;height:100%;border-radius:4px;aspect-ratio:auto}
-.board .slot .card .face{padding:3px 4px;box-shadow:inset 0 0 0 1px rgba(140,109,34,.35)}
-.board .slot .card .face .rank{font-size:12px}
-.board .slot .card .face .pip{font-size:9px}
-.board .slot .card .face .big,.board .slot .card .face .corner.bottom{display:none}
-.board .slot .card .back{box-shadow:inset 0 0 0 1px rgba(212,175,55,.5), inset 0 0 0 3px var(--maroon), inset 0 0 0 4px rgba(212,175,55,.35)}
-.board .slot .card .back::after{font-size:11px}
-.nav{display:flex;gap:22px;align-items:center}
-.nav a{color:var(--mute);text-decoration:none;font-size:15px;font-weight:500;transition:color .3s}
-.nav a:hover{color:var(--cream)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:14px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .45s var(--ease), box-shadow .45s var(--ease), background .3s;position:relative;overflow:hidden;white-space:nowrap}
-.btn-gold{background:var(--gold);color:var(--ink);box-shadow:0 10px 30px -12px rgba(212,175,55,.6)}
-.btn-gold::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease)}
-.btn-gold:hover::after{transform:translateX(120%)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(212,175,55,.7)}
-.btn-line{border-color:rgba(212,175,55,.6);color:var(--cream);background:transparent}
-.btn-line:hover{background:rgba(212,175,55,.08);transform:translateY(-2px)}
-.btn .chip{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;position:relative;flex:none}
-.btn .chip::after{content:"";position:absolute;inset:3px;border-radius:50%;border:1.5px dashed currentColor;opacity:.7}
-.top .btn{padding:10px 16px;font-size:14px}
-
-/* ---------- playing card ---------- */
-.card{position:relative;aspect-ratio:2.5/3.5;border-radius:10px;transform-style:preserve-3d;transition:transform .7s var(--ease);container-type:inline-size}
-.card .face,.card .back{position:absolute;inset:0;border-radius:inherit;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
-.card .face{background:var(--cream-2);color:var(--suit-black);box-shadow:0 20px 40px -18px rgba(0,0,0,.8), inset 0 0 0 1px rgba(140,109,34,.35);padding:7cqw 9cqw;font-family:var(--display);font-weight:700;display:flex;flex-direction:column;justify-content:space-between}
-.card .face .rank{font-size:22cqw;line-height:1}
-.card .face .pip{font-size:14cqw;line-height:1}
-.card .face .big{align-self:center;font-size:38cqw;line-height:1;font-family:var(--body)}
-.card .face .corner{display:flex;flex-direction:column;align-items:center;gap:2px}
-.card .face .corner.bottom{transform:rotate(180deg);align-self:flex-end}
-.card.red .face{color:var(--suit-red)}
-.card .back{background:linear-gradient(145deg, var(--maroon-2), var(--maroon) 55%, #3E0B17);transform:rotateY(180deg);box-shadow:0 20px 40px -18px rgba(0,0,0,.8), inset 0 0 0 1px rgba(212,175,55,.5), inset 0 0 0 6px var(--maroon), inset 0 0 0 7px rgba(212,175,55,.35);display:grid;place-items:center}
-.card .back::after{content:"W";font-family:var(--display);font-weight:700;color:var(--gold);font-size:40px;letter-spacing:.05em}
-.card.down{transform:rotateY(180deg)}
-
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:radial-gradient(70% 75% at 18% 35%, #3A0E1A 0%, var(--felt) 48%, var(--ink) 100%)}
-.hero .photo-wrap{position:absolute;right:0;bottom:0;height:100%;width:min(720px, 52vw);z-index:1;pointer-events:none;-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 38%, #000 100%), linear-gradient(to top, #000 55%, transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent 0%, #000 38%, #000 100%), linear-gradient(to top, #000 55%, transparent 100%);mask-composite:intersect}
-.hero .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:62% 100%;filter:saturate(.9) contrast(1.05)}
-.hero .light{position:absolute;inset:-20%;pointer-events:none;background:radial-gradient(40% 30% at 30% 30%, rgba(212,175,55,.12), transparent 60%);animation:sweep 24s ease-in-out infinite alternate}
-@keyframes sweep{from{transform:translate(-6%,-4%)}to{transform:translate(8%,6%)}}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:end;padding-block:56px 0;min-height:560px}
-.hero-copy{padding-bottom:64px;position:relative;z-index:2}
-.kicker{font-size:15px;color:var(--mute);margin-bottom:18px;font-weight:500;max-width:52ch}
-.kicker b{color:var(--cream)}
-.hero h1{font-size:clamp(38px, 4.4vw, 58px);max-width:15ch}
-.lede{font-size:18px;max-width:54ch;color:var(--cream);margin-top:22px;opacity:.94}
-.cred{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:26px;border-top:1px solid rgba(212,175,55,.3);border-bottom:1px solid rgba(212,175,55,.3)}
-.cred div{padding:14px 14px 14px 0;margin-right:14px;border-right:1px solid rgba(212,175,55,.2);min-width:0}
-.cred div:last-child{border-right:0;margin-right:0}
-.cred .n{font-family:var(--display);font-weight:700;font-size:clamp(20px, 1.9vw, 27px);line-height:1;color:var(--gold);white-space:nowrap}
-.cred .l{font-size:13px;color:var(--mute);margin-top:6px}
-.motto{margin-top:20px;font-family:var(--display);font-style:italic;font-size:20px;color:var(--gold-2)}
-.motto small{font-family:var(--body);font-style:normal;font-size:13px;color:var(--mute);margin-left:10px;letter-spacing:.02em}
-.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center}
-.cta .next{font-size:13.5px;color:var(--mute);flex-basis:100%}
-.hero-art{position:relative;min-height:480px;align-self:stretch}
-.hole{position:absolute;left:4%;bottom:56px;display:flex;gap:0;z-index:3;perspective:900px}
-.hole .card{width:118px;box-shadow:none}
-.hole .card:nth-child(1){transform:rotate(-9deg) translateX(10px)}
-.hole .card:nth-child(2){transform:rotate(7deg) translateX(-10px) translateY(8px)}
-.rail{position:absolute;left:0;right:0;bottom:0;width:100%;height:160px;pointer-events:none;z-index:1}
-.rail path{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:2000;stroke-dashoffset:2000;opacity:.7}
-.rail .glow{stroke:var(--gold-2);stroke-width:6;opacity:.08;filter:blur(6px)}
-.hero.ready .rail path{animation:draw 1.6s var(--ease) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.hero.ready .rise{animation:rise .9s var(--ease) both}
-.hero.ready .rise:nth-child(2){animation-delay:.1s}.hero.ready .rise:nth-child(3){animation-delay:.2s}.hero.ready .rise:nth-child(4){animation-delay:.3s}.hero.ready .rise:nth-child(5){animation-delay:.4s}.hero.ready .rise:nth-child(6){animation-delay:.5s}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.hero.ready .hole .card{animation:deal .9s var(--ease) both}
-.hero.ready .hole .card:nth-child(1){animation-delay:.55s;animation-name:deal1}
-.hero.ready .hole .card:nth-child(2){animation-delay:.75s;animation-name:deal2}
-@keyframes deal{0%{opacity:0}100%{opacity:1}}
-@keyframes deal1{0%{opacity:0;transform:translate(50vw,-30vh) rotateY(180deg) rotate(25deg)}55%{opacity:1;transform:rotate(-9deg) translateX(10px) rotateY(180deg)}100%{opacity:1;transform:rotate(-9deg) translateX(10px) rotateY(0)}}
-@keyframes deal2{0%{opacity:0;transform:translate(50vw,-30vh) rotateY(180deg) rotate(25deg)}55%{opacity:1;transform:rotate(7deg) translateX(-10px) translateY(8px) rotateY(180deg)}100%{opacity:1;transform:rotate(7deg) translateX(-10px) translateY(8px) rotateY(0)}}
-
-/* ---------- chips ---------- */
-.chip-svg{display:block}
-.chip-gold{--c1:#D4AF37;--c2:#3B0B16;--c3:#F0D583}
-.chip-maroon{--c1:#5E1121;--c2:#D4AF37;--c3:#7A1730}
-.chip-ink{--c1:#1C0B10;--c2:#D4AF37;--c3:#26101A}
-.float{position:absolute;pointer-events:none;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55))}
-.float svg{width:100%;height:100%}
-@keyframes floaty{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-12px) rotate(5deg)}}
-@keyframes floaty2{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-8px) rotate(-3deg)}}
-.hero .c1{width:96px;height:96px;left:-6%;top:12%;animation:floaty 7s ease-in-out infinite}
-.hero .c2{width:56px;height:56px;left:34%;top:4%;animation:floaty2 9s ease-in-out infinite;opacity:.9}
-.hero .c3{width:70px;height:70px;left:14%;bottom:40px;animation:floaty 11s ease-in-out infinite reverse;z-index:4}
-.hero .c4{width:40px;height:40px;left:46%;bottom:120px;animation:floaty2 8s ease-in-out infinite;opacity:.85}
-.stack{display:block}
-
-/* ---------- wins marquee ---------- */
-.wins{background:var(--ink);border-top:1px solid rgba(212,175,55,.18);border-bottom:1px solid rgba(212,175,55,.18);padding-block:28px 30px;overflow:hidden}
-.wins .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
-.wins .lbl{font-family:var(--display);font-style:italic;font-size:20px;color:var(--gold)}
-.wins .note{font-size:13.5px;color:var(--mute)}
-.marquee{position:relative;-webkit-mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);mask-image:linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)}
-.track{display:flex;gap:16px;width:max-content;animation:scroll 48s linear infinite;will-change:transform}
-.marquee:hover .track{animation-play-state:paused}
-@keyframes scroll{to{transform:translateX(-50%)}}
-.track figure{margin:0;flex:none;width:200px;border-radius:12px;overflow:hidden;border:1px solid rgba(212,175,55,.35);box-shadow:0 24px 40px -24px rgba(0,0,0,.9);background:#0B0507;transition:transform .6s var(--ease)}
-.track figure:nth-child(odd){transform:rotate(-1.2deg)}
-.track figure:nth-child(even){transform:rotate(1deg) translateY(6px)}
-.track figure:hover{transform:scale(1.04)}
-.track img{width:100%;height:240px;object-fit:cover;object-position:center 70%}
-
-/* ---------- sections ---------- */
-section{position:relative}
-.sec{padding-block:76px}
-.sec h2{font-size:clamp(30px, 3.6vw, 46px);max-width:18ch}
-.sub{font-size:18px;color:var(--mute);max-width:58ch;margin-top:14px}
-.sub b{color:var(--cream)}
-.handoff{margin-top:36px;padding-top:18px;border-top:1px solid rgba(212,175,55,.25);font-family:var(--display);font-size:clamp(20px, 2.1vw, 25px);line-height:1.3;max-width:36ch;color:var(--cream)}
-.handoff a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,175,55,.6)}
-.street{display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-style:italic;font-size:20px;color:var(--gold);margin-bottom:16px;font-weight:400}
-.street i{width:28px;height:1px;background:var(--gold);display:block;opacity:.7}
-.prose p{margin-top:16px;max-width:60ch}
-.prose p:first-child{margin-top:0}
-
-/* problem (flop) */
-.problem{background:var(--felt)}
-.problem .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:stretch;margin-top:8px}
-.problem .grid > .prose{display:flex;flex-direction:column}
-.problem .cost{margin-top:auto}
-.problem .prose p{margin-top:16px}
-.problem .prose .sub{margin-top:14px}
-.leaks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.leaks li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:18px 20px 18px 16px;background:var(--felt-2);border:1px solid rgba(212,175,55,.18);border-radius:12px;min-width:0}
-.leaks .card{width:52px}
-.leaks h3{font-size:19px;font-family:var(--body);font-weight:600;line-height:1.3;color:#FFF7E8}
-.leaks p{font-size:15.5px;color:var(--cream);opacity:.9;margin-top:6px}
-.cost{margin-top:22px;padding:20px 22px;border-left:2px solid var(--gold);background:linear-gradient(90deg, rgba(94,17,33,.35), transparent);max-width:60ch}
-.cost p{font-size:17px}
-
-/* record (turn) */
-.record{background:linear-gradient(to bottom, var(--felt) 0%, var(--ink) 35%)}
-.record .grid{display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:start;margin-top:8px}
-.record .proofcol{display:grid;grid-template-columns:minmax(0,1fr) 200px;grid-template-areas:"head fig" "tiles tiles";gap:18px 22px;align-items:start;min-width:0}
-.record .proofcol > div{min-width:0}
-.record .proofcol > div:first-child{grid-area:head}
-.record .proofcol > div:nth-child(2){grid-area:fig}
-.record .proofcol .tiles{grid-area:tiles;margin-top:4px}
-.bignum{font-family:var(--display);font-weight:700;font-size:clamp(44px, 4.4vw, 64px);line-height:.95;letter-spacing:-.02em;background:linear-gradient(100deg, var(--gold) 0%, var(--gold-2) 35%, var(--gold) 50%, #A8862A 70%, var(--gold-2) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 8s linear infinite}
-@keyframes shimmer{from{background-position:0% 0}to{background-position:250% 0}}
-.bignum-label{font-size:15px;color:var(--mute);margin-top:10px;max-width:36ch}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
-.tile{background:var(--felt-2);border:1px solid rgba(212,175,55,.18);border-radius:12px;padding:16px 18px 14px;min-width:0}
-.tile .n{font-family:var(--display);font-weight:600;font-size:34px;line-height:1;color:var(--cream);font-variant-numeric:tabular-nums}
-.tile .n small{font-size:18px;color:var(--mute);font-weight:400}
-.tile .l{font-size:14.5px;color:var(--cream);margin-top:8px;line-height:1.4}
-.tile .s{font-size:12.5px;color:var(--mute);margin-top:6px}
-.proof{position:relative;width:200px;border-radius:12px;overflow:hidden;border:1px solid rgba(212,175,55,.35);box-shadow:0 30px 60px -30px rgba(0,0,0,.9);transform:rotate(2deg);transition:transform .8s var(--ease);margin-top:6px}
-.proof:hover{transform:rotate(0)}
-.proof img{width:100%}
-.proof figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(to top, rgba(18,7,9,.95), rgba(18,7,9,0));font-size:11.5px;color:var(--cream)}
-.storycol .quote{margin:22px 0 0;padding-left:20px;border-left:2px solid var(--gold);font-family:var(--display);font-size:clamp(21px, 2.2vw, 26px);line-height:1.3;color:var(--cream);max-width:28ch}
-.storycol .quote cite{display:block;font-family:var(--body);font-style:normal;font-size:14px;color:var(--mute);margin-top:8px}
-.storycol .pics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;max-width:420px}
-.storycol .pics img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid rgba(140,109,34,.4)}
-.storycol .pics img:last-child{transform:translateY(14px)}
-
-/* method (river) */
-.method{background:var(--felt)}
-.method .intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-.step{background:var(--felt-2);border:1px solid rgba(212,175,55,.18);border-radius:14px;padding:22px 22px 20px;min-width:0;display:flex;flex-direction:column;gap:10px}
-.step .k{font-family:var(--display);font-weight:600;font-size:40px;color:var(--gold);line-height:1}
-.step h3{font-size:23px}
-.step p{color:var(--cream);opacity:.92;font-size:15.5px}
-.step .feel{color:var(--mute);font-size:14.5px;border-top:1px solid rgba(212,175,55,.18);padding-top:10px;margin-top:auto}
-.types{margin-top:44px;position:relative;padding:48px clamp(48px, 9vw, 124px) 52px}
-.types::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 50% 40%, #2E1019 0%, #22101A 55%, #1C0B10 100%);box-shadow:inset 0 0 0 1px rgba(212,175,55,.35), inset 0 0 0 12px #3B0B16, inset 0 0 0 13px rgba(212,175,55,.3), 0 40px 80px -50px rgba(0,0,0,.9);z-index:0}
-.types > *{position:relative;z-index:1}
-.types h3{font-size:clamp(23px, 2.5vw, 30px);max-width:26ch;margin:0 auto;text-align:center}
-.hands{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
-.hand{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start;min-width:0}
-.hand .card{width:72px;transition:transform .7s var(--ease)}
-.hand:hover .card{transform:rotate(-6deg) translateY(-4px)}
-.hand h4{margin:0;font-family:var(--display);font-size:21px;font-weight:600;line-height:1.1}
-.hand .tell{color:var(--mute);font-size:14.5px;margin-top:5px}
-.hand .move{margin-top:8px;font-size:15.5px;color:var(--cream)}
-.rule{margin-top:36px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:24px 30px;border-radius:16px;background:linear-gradient(120deg, rgba(94,17,33,.6), rgba(38,16,26,.6));border:1px solid rgba(212,175,55,.3)}
-.spin{animation:spin 24s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.rule p{font-family:var(--display);font-size:clamp(19px, 2vw, 25px);line-height:1.3;max-width:38ch}
-.rule p span{color:var(--gold)}
-
-/* ways in (showdown) */
-.ways{background:var(--ink)}
-.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;perspective:1400px}
-.offer{position:relative;min-width:0;background:var(--felt-2);border:1px solid rgba(212,175,55,.22);border-radius:16px;padding:26px 24px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .7s var(--ease), border-color .4s, box-shadow .7s var(--ease)}
-.offer:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.55);box-shadow:0 40px 70px -40px rgba(212,175,55,.35)}
-.offer .tag{font-size:13px;color:var(--mute);font-weight:500}
-.offer h3{font-size:26px}
-.offer .price{font-family:var(--display);font-size:32px;color:var(--gold);line-height:1}
-.offer .price small{font-family:var(--body);font-size:14px;color:var(--mute)}
-.offer p{font-size:15.5px;color:var(--cream);opacity:.92}
-.offer ul{margin:0;padding-left:18px;color:var(--cream);opacity:.92;font-size:15px;display:grid;gap:5px}
-.offer .btn{margin-top:auto;align-self:flex-start}
-.offer .next{font-size:13.5px;color:var(--mute);margin-top:-2px}
-.offer .suit{position:absolute;right:22px;top:20px;font-size:26px;color:var(--gold-dim);font-family:var(--body)}
-.objections{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px}
-.objections div{padding-top:14px;border-top:1px solid rgba(212,175,55,.22);min-width:0}
-.objections h3{font-size:19px;font-family:var(--body);font-weight:600;color:#FFF7E8;line-height:1.3}
-.objections p{font-size:15px;color:var(--cream);opacity:.9;margin-top:6px}
-.identity{margin-top:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;padding:28px 30px;border-radius:16px;background:linear-gradient(120deg, rgba(94,17,33,.35), rgba(38,16,26,.5));border:1px solid rgba(212,175,55,.22)}
-.identity .q{font-family:var(--display);font-size:clamp(22px, 2.4vw, 30px);line-height:1.25;max-width:26ch}
-.identity .q span{color:var(--gold)}
-.identity .urg{font-size:16px;color:var(--cream);opacity:.92;max-width:40ch}
-.identity .urg b{color:#FFF7E8}
-
-/* come along */
-.along{background:linear-gradient(to bottom, var(--ink), var(--felt));overflow:hidden}
-.along .head{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
-.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:32px}
-.strip figure{margin:0;min-width:0;border-radius:10px;overflow:hidden;border:1px solid rgba(140,109,34,.35);aspect-ratio:3/4;transition:transform .8s var(--ease)}
-.strip figure:nth-child(odd){transform:translateY(12px)}
-.strip figure:hover{transform:translateY(-4px) scale(1.02)}
-.strip img{width:100%;height:100%;object-fit:cover;filter:saturate(.95)}
-
-/* footer */
-footer{background:var(--ink);border-top:1px solid rgba(212,175,55,.18);padding-block:40px 48px}
-footer .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start}
-footer .small{font-size:14px;color:var(--mute);max-width:62ch;line-height:1.6}
-footer .mark{font-size:28px}
-footer .links{display:flex;gap:18px;margin-top:14px;font-size:14px}
-footer .links a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(212,175,55,.4)}
-footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
-
-/* ---------- responsive ---------- */
-@media (max-width:1024px){
-  .nav{display:none}
-  .hero .wrap{grid-template-columns:1fr 1fr;gap:20px}
-  .problem .grid,.record .grid,.method .intro,.identity{grid-template-columns:1fr;gap:32px}
-  .steps,.hands,.offers{grid-template-columns:1fr 1fr}
-  .strip{grid-template-columns:repeat(3,1fr)}
-}
-@media (max-width:760px){
-  body{font-size:16px}
-  .top .wrap{min-height:58px}
-  .top .btn{display:none}
-  .board .slot{width:22px;height:32px}
-  .board .slot .card .face .rank{font-size:10px}.board .slot .card .face .pip{font-size:8px}.board .slot .card .face{padding:2px 3px}.board .slot .card .back::after{font-size:9px}
-  .hero .wrap{grid-template-columns:1fr;min-height:0;padding-block:40px 0;gap:0}
-  .hero-copy{padding-bottom:32px}
-  .hero h1{font-size:clamp(34px, 9.4vw, 42px);max-width:none}
-  .lede{font-size:17px}
-  .cred div{padding:12px 14px 12px 0;margin-right:14px}
-  .cred .n{font-size:24px}
-  .hero-art{min-height:400px;margin-top:8px}
-  .hero .photo-wrap{width:100%;height:440px;-webkit-mask-image:linear-gradient(to top, #000 60%, transparent 100%);-webkit-mask-composite:source-over;mask-image:linear-gradient(to top, #000 60%, transparent 100%);mask-composite:add}
-  .hero .photo-wrap img{object-position:70% 100%}
-  .hole{left:0;bottom:28px}
-  .hole .card{width:92px}
-  .sec{padding-block:52px}
-  .tiles,.steps,.hands,.offers,.objections{grid-template-columns:1fr}
-  .record .proofcol{grid-template-columns:1fr;grid-template-areas:"head" "fig" "tiles"}
-  .proof{width:220px;transform:none}
-  .cred{grid-template-columns:1fr 1fr 1fr}
-  .cred .n{font-size:19px}
-  .cred .l{font-size:12px}
-  .types{padding:28px 18px 24px}
-  .types::before{border-radius:28px;box-shadow:inset 0 0 0 1px rgba(212,175,55,.35), inset 0 0 0 8px #3B0B16, inset 0 0 0 9px rgba(212,175,55,.3)}
-  .types h3{text-align:left;margin:0}
-  .strip{grid-template-columns:repeat(2,1fr)}
-  .strip figure:nth-child(odd){transform:none}
-  .rule{grid-template-columns:1fr;padding:22px}
-  .along .head{grid-template-columns:1fr}
-  footer .wrap{grid-template-columns:1fr}
-}
-@media (max-width:760px){
-  .hero .c1{width:64px;height:64px;left:auto;right:6%;top:2%}
-  .hero .c2{display:none}
-  .hero .c3{width:52px;height:52px;left:58%;bottom:30px}
-  .hero .c4{display:none}
-  .track figure{width:160px}
-  .track img{height:200px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .marquee{-webkit-mask-image:none;mask-image:none;overflow-x:auto}
-  .track{width:auto}
-  .rail path{stroke-dashoffset:0}
-  .hero .rise,.hole .card{opacity:1}
-  .card.down{transform:none}
-}
-</style>
-
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
+<link rel="preload" as="image" href="/img/hero-portrait.jpg" fetchpriority="high">
+<link rel="stylesheet" href="/styles.css?v=3">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://weingoat-site.vercel.app/#website","name":"Weingoat","url":"https://weingoat-site.vercel.app/","publisher":{"@id":"https://weingoat-site.vercel.app/#adam"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://weingoat-site.vercel.app/#adam","name":"Adam Weingard","alternateName":"Weingoat","jobTitle":"Professional poker player","description":"Adam Weingard, known as Weingoat, is a professional poker player who plays live cash games, online and tournaments, and teaches the decision process behind his results.","url":"https://weingoat-site.vercel.app/about","image":"https://weingoat-site.vercel.app/img/portrait-cigar.jpg","sameAs":["https://www.instagram.com/adamweingard/","https://www.cardplayer.com/poker-players/453884-adam-weingard"],"knowsAbout":["Poker strategy","Live cash game poker","Preflop strategy","Tournament poker"]},{"@type":"WebPage","@id":"https://weingoat-site.vercel.app/#webpage","url":"https://weingoat-site.vercel.app/","name":"Weingoat","isPartOf":{"@id":"https://weingoat-site.vercel.app/#website"},"about":{"@id":"https://weingoat-site.vercel.app/#adam"},"inLanguage":"en-US"}]}</script>
 </head>
-<body>
+<body class="page-index">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="chip" viewBox="0 0 100 100">
@@ -385,29 +80,26 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
   </defs>
 </svg>
 
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="#top" aria-label="Weingoat, home">Wein<span>goat</span></a>
-    <div class="board" aria-label="Community cards, dealt as you read" id="board">
+    <a class="mark" href="/" aria-label="Weingoat, home">Wein<span>goat</span></a>
+    <div class="board" aria-label="Community cards" id="board">
       <div class="slot" data-rank="A" data-suit="♦" data-color="red"></div>
       <div class="slot" data-rank="K" data-suit="♣" data-color="black"></div>
       <div class="slot" data-rank="7" data-suit="♠" data-color="black"></div>
       <div class="slot" data-rank="K" data-suit="♥" data-color="red"></div>
       <div class="slot" data-rank="2" data-suit="♦" data-color="red"></div>
     </div>
-    <nav class="nav" aria-label="Sections">
-      <a href="#leaks">The leaks</a><a href="#record">Record</a><a href="#method">Method</a><a href="#learn">Learn</a>
-    </nav>
-    <a class="btn btn-gold" href="#learn"><span class="chip" aria-hidden="true"></span>Get the Playbook</a>
+    <nav class="nav" aria-label="Pages"><a href="/" aria-current="page">Home</a><a href="/about">About</a><a href="/products">Products</a><a href="/contact">Contact</a></nav>
+    <a class="btn btn-gold" href="/products#playbook"><span class="chip" aria-hidden="true"></span>Get the Playbook</a>
   </div>
 </header>
-
-<main id="top">
-
+<main id="main">
 <!-- ========== HERO / PREFLOP ========== -->
 <section class="hero grain" id="hero" aria-labelledby="h1">
   <div class="light" aria-hidden="true"></div>
-  <div class="photo-wrap"><img src="img/hero-portrait.jpg" alt="Adam Weingard in a white linen shirt at night, looking off to the side" width="1140" height="1600"></div>
+  <div class="photo-wrap"><img src="/img/hero-portrait.jpg" fetchpriority="high" decoding="async" alt="Adam Weingard in a white linen shirt at night, looking off to the side" width="1140" height="1600"></div>
   <div class="wrap">
     <div class="hero-copy">
       <p class="kicker rise">For the player who's a year or two in and <b>already knows the game can be played at a higher level.</b></p>
@@ -450,15 +142,15 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
   </div>
   <div class="marquee">
     <div class="track" id="track">
-      <figure><img src="img/wins/win-gold-million.jpg" alt="The Gold Million, 1,000,000 guaranteed, August 30 2026: finishing position 1 of 5,268" loading="lazy"></figure>
-      <figure><img src="img/wins/win-8918b402.jpg" alt="110 SC PKO, 10,000 guaranteed, August 22 2025: finishing position 1 of 100" loading="lazy"></figure>
-      <figure><img src="img/wins/win-0a823c19.jpg" alt="33 SC Early Riser, 10,000 guaranteed, September 11 2025: finishing position 1 of 369" loading="lazy"></figure>
-      <figure><img src="img/wins/win-bd6919ef.jpg" alt="110 SC Bounty, 15,000 guaranteed, August 15 2025: finishing position 1 of 141" loading="lazy"></figure>
-      <figure><img src="img/wins/win-be496a79.jpg" alt="33 SC Early Riser, 10,000 guaranteed, August 20 2025: finishing position 1 of 360" loading="lazy"></figure>
-      <figure><img src="img/wins/win-2e43c0b3.jpg" alt="22 SC Daily Start, 15,000 guaranteed, July 23 2025: finishing position 4 of 858" loading="lazy"></figure>
-      <figure><img src="img/wins/win-1b38d623.jpg" alt="530 SC Bounty knockout, 100,000 guaranteed, August 25 2025: finishing position 12 of 241" loading="lazy"></figure>
-      <figure><img src="img/wins/win-d4a9ce72.jpg" alt="110 SC Sunday Deepstack, 200,000 guaranteed, July 6 2025: finishing position 13 of 2,670" loading="lazy"></figure>
-      <figure><img src="img/wins/win-074888a3.jpg" alt="530 SC, 60,000 guaranteed, September 9 2025: finishing position 16 of 161" loading="lazy"></figure>
+      <figure><img width="714" height="952" src="/img/wins/win-gold-million.jpg" alt="The Gold Million, 1,000,000 guaranteed, August 30 2026: finishing position 1 of 5,268" loading="lazy"></figure>
+      <figure><img width="504" height="543" src="/img/wins/win-8918b402.jpg" alt="110 SC PKO, 10,000 guaranteed, August 22 2025: finishing position 1 of 100" loading="lazy"></figure>
+      <figure><img width="560" height="603" src="/img/wins/win-0a823c19.jpg" alt="33 SC Early Riser, 10,000 guaranteed, September 11 2025: finishing position 1 of 369" loading="lazy"></figure>
+      <figure><img width="451" height="503" src="/img/wins/win-bd6919ef.jpg" alt="110 SC Bounty, 15,000 guaranteed, August 15 2025: finishing position 1 of 141" loading="lazy"></figure>
+      <figure><img width="474" height="515" src="/img/wins/win-be496a79.jpg" alt="33 SC Early Riser, 10,000 guaranteed, August 20 2025: finishing position 1 of 360" loading="lazy"></figure>
+      <figure><img width="560" height="657" src="/img/wins/win-2e43c0b3.jpg" alt="22 SC Daily Start, 15,000 guaranteed, July 23 2025: finishing position 4 of 858" loading="lazy"></figure>
+      <figure><img width="560" height="675" src="/img/wins/win-1b38d623.jpg" alt="530 SC Bounty knockout, 100,000 guaranteed, August 25 2025: finishing position 12 of 241" loading="lazy"></figure>
+      <figure><img width="560" height="703" src="/img/wins/win-d4a9ce72.jpg" alt="110 SC Sunday Deepstack, 200,000 guaranteed, July 6 2025: finishing position 13 of 2,670" loading="lazy"></figure>
+      <figure><img width="475" height="523" src="/img/wins/win-074888a3.jpg" alt="530 SC, 60,000 guaranteed, September 9 2025: finishing position 16 of 161" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -499,7 +191,7 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
         </div>
         <div>
           <figure class="proof">
-            <img src="img/gold-million.jpg" alt="Tournament result screen: The Gold Million, 1,000,000 guaranteed, August 30 2026, weingoat, finishing position 1 of 5,268" width="714" height="952" loading="lazy">
+            <img src="/img/gold-million.jpg" alt="Tournament result screen: The Gold Million, 1,000,000 guaranteed, August 30 2026, weingoat, finishing position 1 of 5,268" width="714" height="952" loading="lazy">
             <figcaption>The finish screen. Handle: weingoat.</figcaption>
           </figure>
           <svg class="stack" width="150" height="138" aria-hidden="true" style="margin:26px auto 0;filter:drop-shadow(0 18px 24px rgba(0,0,0,.5))"><use href="#stack"/></svg>
@@ -518,8 +210,8 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
         <p>Then came the week that didn't feel real in the other direction: a win on the drive down to Hollywood, Florida, a satellite seat, a final table at two in the morning, second place the next day. <b>About $25,000 in seven days,</b> playing exactly the way I'd played the night I lost. That's variance, and it gave me the only rule I still play by.</p>
         <blockquote class="quote">If I can honestly say I played my best, I don't care about the result. The only time I'm upset after a loss is when I misplayed a spot.<cite>Adam</cite></blockquote>
         <div class="pics" aria-hidden="true">
-          <img src="img/portrait-cigar.jpg" alt="" loading="lazy">
-          <img src="img/morongo.jpg" alt="" loading="lazy">
+          <img width="1000" height="1000" src="/img/portrait-cigar.jpg" alt="" loading="lazy">
+          <img width="900" height="1200" src="/img/morongo.jpg" alt="" loading="lazy">
         </div>
       </div>
     </div>
@@ -643,29 +335,30 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
       <a class="btn btn-line" href="https://www.instagram.com/adamweingard/" target="_blank" rel="noopener">Follow @adamweingard</a>
     </div>
     <div class="strip">
-      <figure><img src="img/vegas-strip.jpg" alt="The Las Vegas Strip at night" loading="lazy"></figure>
-      <figure><img src="img/portrait-blue.jpg" alt="Adam in white linen against a deep blue wall" loading="lazy"></figure>
-      <figure><img src="img/chicago-night.jpg" alt="Chicago river and skyline at night" loading="lazy"></figure>
-      <figure><img src="img/marbella.jpg" alt="Adam at night in Marbella" loading="lazy"></figure>
-      <figure><img src="img/vegas-pool.jpg" alt="A Las Vegas hotel pool under a bright sky" loading="lazy"></figure>
-      <figure><img src="img/vegas-towers.jpg" alt="Las Vegas hotel towers lit at night" loading="lazy"></figure>
+      <figure><img width="1400" height="1867" src="/img/vegas-strip.jpg" alt="The Las Vegas Strip at night" loading="lazy"></figure>
+      <figure><img width="1000" height="1250" src="/img/portrait-blue.jpg" alt="Adam in white linen against a deep blue wall" loading="lazy"></figure>
+      <figure><img width="1400" height="1867" src="/img/chicago-night.jpg" alt="Chicago river and skyline at night" loading="lazy"></figure>
+      <figure><img width="900" height="1125" src="/img/marbella.jpg" alt="Adam at night in Marbella" loading="lazy"></figure>
+      <figure><img width="1000" height="1333" src="/img/vegas-pool.jpg" alt="A Las Vegas hotel pool under a bright sky" loading="lazy"></figure>
+      <figure><img width="1400" height="1867" src="/img/vegas-towers.jpg" alt="Las Vegas hotel towers lit at night" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
 </main>
-
 <footer>
   <div class="wrap">
-    <div>
-      <a class="mark" href="#top">Wein<span>goat</span></a>
-      <div class="links"><a href="https://www.instagram.com/adamweingard/" target="_blank" rel="noopener">Instagram</a><a href="#learn">Playbook</a><a href="#learn">Community</a><a href="#learn">Coaching</a></div>
+    <div class="fcol brand">
+      <a class="mark" href="/">Wein<span>goat</span></a>
+      <p class="small" style="margin-top:12px">Adam Weingard, professional poker player. Live cash, online and tournaments, and the decision process behind the results.</p>
       <p class="copy">© 2026 Adam Weingard. All rights reserved.</p>
     </div>
-    <p class="small">Weingoat is poker education. Nothing on this site is a promise of results, and nothing here is gambling: no stakes change hands in the playbook, the community or coaching. The results above are mine; yours will depend on your decisions, your games and variance. You must be 18 or older, or of legal age where you live.</p>
+    <nav class="fcol" aria-label="Pages"><h4>Pages</h4><a href="/">Home</a><a href="/about">About Adam</a><a href="/products">Products</a><a href="/contact">Contact</a></nav>
+    <nav class="fcol" aria-label="Learn"><h4>Learn</h4><a href="/products#playbook">The Preflop Playbook</a><a href="/products#community">The community</a><a href="/products#coaching">One-on-one coaching</a><a href="/#leaks">Where the money leaks</a><a href="/#method">The method</a></nav>
+    <nav class="fcol" aria-label="Elsewhere"><h4>Elsewhere</h4><a href="https://www.instagram.com/adamweingard/" target="_blank" rel="noopener me">Instagram</a><a href="https://www.cardplayer.com/poker-players/453884-adam-weingard" target="_blank" rel="noopener">Tournament record (CardPlayer)</a></nav>
+    <p class="small legal">Weingoat is poker education. Nothing on this site is a promise of results, and nothing here is gambling: no stakes change hands in the playbook, the community or coaching. The results shown are Adam's; yours will depend on your decisions, your games and variance. You must be 18 or older, or of legal age where you live.</p>
   </div>
 </footer>
-
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -678,12 +371,13 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
   });
   var hero = document.getElementById('hero');
   function start(){
+    if(!hero) return;
     if(hero.classList.contains('ready')) return;
     hero.classList.add('ready');
     var t = reduce ? 0 : 1300;
     setTimeout(function(){ document.querySelectorAll('#hole .card').forEach(function(c){ c.classList.remove('down'); }); }, t);
   }
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); setTimeout(start, 1500); } else { start(); }
+  if(hero){ if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); setTimeout(start, 1500); } else { start(); } }
 
   var slots = Array.prototype.slice.call(document.querySelectorAll('#board .slot'));
   var dealt = 0;
@@ -702,14 +396,16 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
     }
     dealt = n;
   }
-  if('IntersectionObserver' in window){
+  var boardEl = document.getElementById('board');
+  if(boardEl && boardEl.dataset.dealt){ dealTo(parseInt(boardEl.dataset.dealt, 10)); }
+  else if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ dealTo(parseInt(e.target.dataset.deal, 10)); } });
     }, { rootMargin: '0px 0px -40% 0px' });
     document.querySelectorAll('[data-deal]').forEach(function(s){ io.observe(s); });
   } else { dealTo(5); }
 
-  if(!reduce && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+  if(hero && !reduce && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
     var hole = document.getElementById('hole');
     hero.addEventListener('mousemove', function(ev){
       var r = hero.getBoundingClientRect();
@@ -727,7 +423,21 @@ footer .copy{margin-top:16px;font-size:13px;color:var(--mute)}
     a.addEventListener('click', function(e){ e.preventDefault(); a.setAttribute('aria-label', 'Link coming soon'); });
   });
 })();
-</script>
 
+// contact form: static site, so it hands off to email when an address is configured, else to Instagram
+(function(){
+  var f = document.getElementById('contact-form'); if(!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var to = f.getAttribute('data-contact-email') || '';
+    var name = (f.name && f.name.value || '').trim(), email = (f.email && f.email.value || '').trim(), msg = (f.message && f.message.value || '').trim();
+    if(!name || !email || !msg){ f.reportValidity && f.reportValidity(); return; }
+    var body = 'Name: ' + name + '\nEmail: ' + email + '\nTopic: ' + (f.topic && f.topic.value) + '\nPlays: ' + (f.stakes && f.stakes.value) + '\n\n' + msg;
+    if(to){ window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Weingoat site: ' + (f.topic && f.topic.value)) + '&body=' + encodeURIComponent(body); f.classList.add('is-sent'); }
+    else { var s = f.querySelector('.sent'); s.innerHTML = 'The form isn\'t connected yet. For now, send this as a DM on <a href="https://www.instagram.com/adamweingard/" target="_blank" rel="noopener">Instagram</a>.'; f.classList.add('is-sent'); }
+  });
+})();
+
+</script>
 </body>
 </html>
