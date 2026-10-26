@@ -82,7 +82,9 @@ p{margin:0}
 .card.down{transform:rotateY(180deg)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:radial-gradient(90% 70% at 22% 30%, #3A0E1A 0%, var(--felt) 50%, var(--ink) 100%)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(70% 75% at 18% 35%, #3A0E1A 0%, var(--felt) 48%, var(--ink) 100%)}
+.hero .photo-wrap{position:absolute;right:0;bottom:0;height:100%;width:min(720px, 52vw);z-index:1;pointer-events:none;-webkit-mask-image:linear-gradient(to right, transparent 0%, #000 38%, #000 100%), linear-gradient(to top, #000 55%, transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent 0%, #000 38%, #000 100%), linear-gradient(to top, #000 55%, transparent 100%);mask-composite:intersect}
+.hero .photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:62% 100%;filter:saturate(.9) contrast(1.05)}
 .hero .light{position:absolute;inset:-20%;pointer-events:none;background:radial-gradient(40% 30% at 30% 30%, rgba(212,175,55,.12), transparent 60%);animation:sweep 24s ease-in-out infinite alternate}
 @keyframes sweep{from{transform:translate(-6%,-4%)}to{transform:translate(8%,6%)}}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;padding-block:72px 0;min-height:620px}
@@ -96,7 +98,6 @@ p{margin:0}
 .motto small{display:block;font-family:var(--body);font-style:normal;font-size:13px;color:var(--mute);margin-top:4px;letter-spacing:.02em}
 .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 .hero-art{position:relative;min-height:520px;align-self:stretch}
-.hero-art .photo{position:absolute;right:-40px;bottom:0;width:min(600px, 110%);height:100%;object-fit:cover;object-position:60% 100%;-webkit-mask-image:radial-gradient(85% 90% at 62% 78%, #000 45%, transparent 100%);mask-image:radial-gradient(85% 90% at 62% 78%, #000 45%, transparent 100%);filter:saturate(.9) contrast(1.05)}
 .hole{position:absolute;left:4%;bottom:56px;display:flex;gap:0;z-index:3;perspective:900px}
 .hole .card{width:118px;box-shadow:none}
 .hole .card:nth-child(1){transform:rotate(-9deg) translateX(10px)}
@@ -237,8 +238,9 @@ footer .copy{margin-top:18px;font-size:13px;color:var(--mute)}
   .hero-copy{padding-bottom:40px}
   .hero h1{font-size:clamp(36px, 10vw, 44px);max-width:none}
   .lede{font-size:17px}
-  .hero-art{min-height:420px;margin-top:8px}
-  .hero-art .photo{right:-16px;width:100%;object-position:70% 100%;-webkit-mask-image:radial-gradient(90% 85% at 60% 85%, #000 40%, transparent 100%);mask-image:radial-gradient(90% 85% at 60% 85%, #000 40%, transparent 100%)}
+  .hero-art{min-height:400px;margin-top:8px}
+  .hero .photo-wrap{width:100%;height:440px;-webkit-mask-image:linear-gradient(to top, #000 60%, transparent 100%);-webkit-mask-composite:source-over;mask-image:linear-gradient(to top, #000 60%, transparent 100%);mask-composite:add}
+  .hero .photo-wrap img{object-position:70% 100%}
   .hole{left:0;bottom:28px}
   .hole .card{width:92px}
   .sec{padding-block:72px}
@@ -288,6 +290,7 @@ footer .copy{margin-top:18px;font-size:13px;color:var(--mute)}
 <!-- ========== HERO / PREFLOP ========== -->
 <section class="hero grain" id="hero" aria-labelledby="h1">
   <div class="light" aria-hidden="true"></div>
+  <div class="photo-wrap"><img src="img/hero-portrait.jpg" alt="Adam Weingard in a white linen shirt at night, looking off to the side" width="1140" height="1600"></div>
   <div class="wrap">
     <div class="hero-copy">
       <p class="kicker rise"><b>Adam Weingard.</b> Professional poker player.</p>
@@ -300,7 +303,6 @@ footer .copy{margin-top:18px;font-size:13px;color:var(--mute)}
       </div>
     </div>
     <div class="hero-art">
-      <img class="photo" src="img/hero-portrait.jpg" alt="Adam Weingard in a white linen shirt at night, looking off to the side" width="1140" height="1600">
       <div class="hole" id="hole" aria-label="Pocket aces">
         <div class="card down" data-rank="A" data-suit="♠" data-color="black"></div>
         <div class="card down red" data-rank="A" data-suit="♥" data-color="red"></div>
