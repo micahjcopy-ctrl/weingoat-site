@@ -72,6 +72,7 @@ PAGES = [
              "isPartOf": {"@id": BASE + "/#website"}, "about": {"@id": BASE + "/#adam"}},
             breadcrumb([("Home", "/"), ("Contact", "/contact")])]),
     dict(slug="og", path="/og", title="Weingoat", description="Share card.", image="/img/og-home.jpg", noindex=True, schema=[], bare=True),
+    dict(slug="fonts", path="/fonts", title="Weingoat type test", description="Internal.", image="/img/og-home.jpg", noindex=True, schema=[], bare=True),
     dict(slug="404", path="/404", title="Page not found | Weingoat", description="That page isn't on the table.",
          image="/img/og-home.jpg", noindex=True, schema=[]),
 ]
@@ -191,7 +192,7 @@ for p in urls:
     sm.append(f"  <url><loc>{loc}</loc><lastmod>{TODAY}</lastmod><changefreq>monthly</changefreq><priority>{pri}</priority>{img}</url>")
 sm.append("</urlset>\n")
 write("sitemap.xml", "\n".join(sm))
-write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /404\nDisallow: /og\n\nSitemap: {BASE}/sitemap.xml\n")
+write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /404\nDisallow: /og\nDisallow: /fonts\n\nSitemap: {BASE}/sitemap.xml\n")
 
 # artifact copy of the home page: CSS inline, no doctype/html/head/body (the claude.ai viewer wraps it)
 home = PAGES[0]

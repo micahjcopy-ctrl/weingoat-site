@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /404
 Disallow: /og
+Disallow: /fonts
 
 Sitemap: https://weingoat-site.vercel.app/sitemap.xml
