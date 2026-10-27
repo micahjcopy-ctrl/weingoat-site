@@ -45,7 +45,7 @@ u.tac{text-decoration:underline;text-decoration-color:var(--gold);text-decoratio
 .mark{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.02em;color:var(--cream);text-decoration:none}
 .mark span{color:var(--gold)}
 .board{display:flex;gap:6px;align-items:center}
-.board .slot{width:28px;height:40px;border-radius:4px;border:1px dashed rgba(212,175,55,.35);perspective:400px;position:relative}
+.board .slot{width:28px;height:40px;border-radius:4px;perspective:400px;position:relative}
 .board .slot .card{width:100%;height:100%;border-radius:4px;aspect-ratio:auto}
 .board .slot .card .face{padding:3px 4px;box-shadow:inset 0 0 0 1px rgba(140,109,34,.35)}
 .board .slot .card .face .rank{font-size:12px}
@@ -746,16 +746,20 @@ footer .fcol.brand .small{max-width:34ch}
   if(hero){ if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); setTimeout(start, 1500); } else { start(); } }
 
   var slots = Array.prototype.slice.call(document.querySelectorAll('#board .slot'));
+  // every slot holds a face-down card from the start; sections flip them face-up as the reader scrolls
+  slots.forEach(function(s){
+    if(s.firstChild) return;
+    var c = document.createElement('div');
+    c.className = 'card down' + (s.dataset.color==='red' ? ' red' : '');
+    c.innerHTML = cardHTML(s.dataset.rank, s.dataset.suit);
+    s.appendChild(c);
+  });
   var dealt = 0;
   function dealTo(n){
     if(n <= dealt) return;
     for(var i = dealt; i < n; i++){
       (function(i){
-        var s = slots[i]; if(!s || s.firstChild) return;
-        var c = document.createElement('div');
-        c.className = 'card down' + (s.dataset.color==='red' ? ' red' : '');
-        c.innerHTML = cardHTML(s.dataset.rank, s.dataset.suit);
-        s.appendChild(c);
+        var c = slots[i] && slots[i].firstChild; if(!c) return;
         var delay = reduce ? 0 : 80 + (i - dealt) * 140;
         setTimeout(function(){ c.classList.remove('down'); }, delay);
       })(i);

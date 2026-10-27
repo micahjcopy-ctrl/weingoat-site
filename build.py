@@ -116,7 +116,7 @@ def head(page, inline_css=False):
     if page["path"] == "/": url = BASE + "/"
     robots = "noindex, nofollow" if page.get("noindex") else "index, follow, max-image-preview:large"
     ld = {"@context": "https://schema.org", "@graph": page["schema"]} if page["schema"] else None
-    style = f"<style>\n{css}</style>" if inline_css else '<link rel="stylesheet" href="/styles.css?v=4">'
+    style = f"<style>\n{css}</style>" if inline_css else '<link rel="stylesheet" href="/styles.css?v=5">'
     return f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{page["title"]}</title>

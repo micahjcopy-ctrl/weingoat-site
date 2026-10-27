@@ -18,16 +18,20 @@
   if(hero){ if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); setTimeout(start, 1500); } else { start(); } }
 
   var slots = Array.prototype.slice.call(document.querySelectorAll('#board .slot'));
+  // every slot holds a face-down card from the start; sections flip them face-up as the reader scrolls
+  slots.forEach(function(s){
+    if(s.firstChild) return;
+    var c = document.createElement('div');
+    c.className = 'card down' + (s.dataset.color==='red' ? ' red' : '');
+    c.innerHTML = cardHTML(s.dataset.rank, s.dataset.suit);
+    s.appendChild(c);
+  });
   var dealt = 0;
   function dealTo(n){
     if(n <= dealt) return;
     for(var i = dealt; i < n; i++){
       (function(i){
-        var s = slots[i]; if(!s || s.firstChild) return;
-        var c = document.createElement('div');
-        c.className = 'card down' + (s.dataset.color==='red' ? ' red' : '');
-        c.innerHTML = cardHTML(s.dataset.rank, s.dataset.suit);
-        s.appendChild(c);
+        var c = slots[i] && slots[i].firstChild; if(!c) return;
         var delay = reduce ? 0 : 80 + (i - dealt) * 140;
         setTimeout(function(){ c.classList.remove('down'); }, delay);
       })(i);
